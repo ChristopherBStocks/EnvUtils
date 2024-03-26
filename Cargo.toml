@@ -1,0 +1,20 @@
+[package]
+name = "env_utils"
+version = "0.1.0"
+authors = ["Christopher Stocks <christopher.b.stocks@gmail.com>"]
+description = "A dotenvy extending rust library to enable easy usage of .env files."
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+keywords = ["environment", "env"]
+edition = "2021"
+
+[dependencies]
+# General
+tokio = { version = "1.10.0", features = ["full"], optional = true} # Async Test Runtime
+
+# Core
+dotenvy = { version = "0.15.7" } # Environment Variable Handler
+
+[features]
+default = []
+testing = ["tokio"]
