@@ -1,4 +1,4 @@
-use crate::{get_env_i16_or_default, get_env_i32_or_default, get_env_i64_or_default, get_env_i8_or_default};
+use crate::defaults::{get_env_i16_or_default, get_env_i32_or_default, get_env_i64_or_default, get_env_i8_or_default};
 
 #[tokio::test]
 async fn i64_env_test() {

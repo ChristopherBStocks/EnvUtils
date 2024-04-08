@@ -1,4 +1,4 @@
-use crate::{get_env_f32_or_default, get_env_f64_or_default};
+use crate::defaults::{get_env_f32_or_default, get_env_f64_or_default};
 
 #[tokio::test]
 async fn f64_env_test() {

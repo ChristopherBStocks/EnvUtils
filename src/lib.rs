@@ -1,8 +1,8 @@
 // Re-exports
-pub use logic::defaults::*;
+pub use logic::*;
 pub mod libraries;
 
-mod logic {
+pub mod logic {
     pub mod defaults {
         mod string;
         pub use string::*;

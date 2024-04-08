@@ -1,4 +1,4 @@
-use crate::get_env_bool_or_default;
+use crate::defaults::get_env_bool_or_default;
 
 #[tokio::test]
 async fn bool_env_test() {

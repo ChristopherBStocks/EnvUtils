@@ -1,4 +1,4 @@
-use crate::get_env_string_or_default;
+use crate::defaults::get_env_string_or_default;
 
 #[tokio::test]
 async fn string_env_test() {
