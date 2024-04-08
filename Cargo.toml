@@ -1,6 +1,6 @@
 [package]
 name = "env_utils"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Christopher Stocks <christopher.b.stocks@gmail.com>"]
 description = "A dotenvy extending rust library to enable easy usage of .env files."
 readme = "README.md"
