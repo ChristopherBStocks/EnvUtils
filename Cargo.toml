@@ -11,7 +11,7 @@ repository = "https://github.com/ChristopherBStocks/EnvUtils"
 
 [dependencies]
 # General
-tokio = { version = "1.10.0", features = ["full"], optional = true} # Async Test Runtime
+tokio = { version = "1.37.0", features = ["test-util", "macros"], optional = true} # Async Test Runtime
 
 # Core
 dotenvy = { version = "0.15.7" } # Environment Variable Handler
