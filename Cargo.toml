@@ -1,21 +1,25 @@
 [package]
 name = "env_utils"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["Christopher Stocks <christopher.b.stocks@gmail.com>"]
-description = "A dotenvy extending rust library to enable easy usage of .env files."
+description = "A rust library to enable easy usage of .env files."
 readme = "README.md"
 license = "MIT OR Apache-2.0"
 keywords = ["environment", "env"]
 edition = "2021"
 repository = "https://github.com/ChristopherBStocks/EnvUtils"
 
-[dependencies]
-# General
-tokio = { version = "1.37.0", features = ["test-util", "macros"], optional = true} # Async Test Runtime
+[dev-dependencies]
+# Testing
+tokio = { version = "1.37.0", features = ["test-util", "macros"] } # Async Test Runtime
+mockall = { version = "0.12.1" } # Mocking Library
 
-# Core
-dotenvy = { version = "0.15.7" } # Environment Variable Handler
+[dependencies]
+# Domain
+thiserror = { version = "1.0.60" } # Custom Error Handling
+# Adapter
+dotenvy = { version = "0.15.7", optional = true } # a .env file parser
 
 [features]
-default = []
-testing = ["tokio"]
+default = ["dotenvy"]
+dotenvy = ["dep:dotenvy"]

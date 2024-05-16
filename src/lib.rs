@@ -1,32 +1,59 @@
-// Re-exports
-pub use logic::*;
-pub mod libraries;
+pub use core::error::EnvUtilsError;
+pub use ports::spi::env::EnvType;
+pub use systems::env_service::EnvService;
 
-pub mod logic {
-    pub mod defaults {
-        mod string;
-        pub use string::*;
-        mod signed_integer;
-        pub use signed_integer::*;
-        mod unsigned_integer;
-        pub use unsigned_integer::*;
-        mod floating_point;
-        pub use floating_point::*;
-        mod boolean;
-        pub use boolean::*;
-    }
+mod core {
+	pub mod error;
 }
 
-#[cfg(feature = "testing")]
-#[cfg(test)]
-mod tests {
-    mod logic {
-        mod defaults {
-            mod boolean;
-            mod floating_point;
-            mod signed_integer;
-            mod string;
-            mod unsigned_integer;
-        }
-    }
+mod interactions {
+	pub mod repositories {
+		pub use env_repository::*;
+		
+		mod env_repository;
+	}
+	
+	pub mod services {
+		pub mod load {
+			pub use load_env::Load;
+			
+			mod load_env;
+		}
+		
+		pub mod retrieve {
+			pub use retrieve_or_default::RetrieveDefault;
+			pub use retrieve_or_default_with_error::RetrieveDefaultError;
+			pub use retrieve_with_error::RetrieveError;
+			
+			mod retrieve_or_default;
+			mod retrieve_or_default_with_error;
+			mod retrieve_with_error;
+		}
+	}
+	
+	pub mod interfaces {
+		pub use load::ILoad;
+		pub use retrieve::*;
+		
+		mod load;
+		mod retrieve;
+	}
 }
+
+mod ports {
+	pub mod spi {
+		pub mod env {
+			pub use dotenvy::DotenvyRepository;
+			pub use env_type::EnvType;
+			
+			mod dotenvy;
+			
+			mod env_type;
+		}
+	}
+}
+
+mod systems {
+	pub mod env_service;
+}
+
